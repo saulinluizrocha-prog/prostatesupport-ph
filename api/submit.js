@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
             city: body.city || null,
             count: body.count || null,
             offer_id: offerId,
-            stream_id: streamId,
+            stream: streamId,
             country: 'PH',
             tz: body.tz || '',
             address: body.address || null,
