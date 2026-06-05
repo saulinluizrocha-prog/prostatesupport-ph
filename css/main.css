@@ -158,6 +158,8 @@ body,html{
 .prS1{
   margin-top: 259px;
   padding-bottom: 18px;
+  max-width: 320px;
+  width: 100%;
 }
 
 .section__01 .boxS1{
