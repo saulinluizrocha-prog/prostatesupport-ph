@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tl">
 <head>
     <meta charset="UTF-8">
@@ -242,6 +242,357 @@
                 justify-content: center;
             }
         }
+
+        /* Pop-up Modal Styling */
+        .upsell-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .upsell-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .upsell-modal-content {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            max-width: 520px;
+            width: 90%;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            border: 2px solid #ef4444;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            color: #1e293b;
+        }
+        .upsell-modal-overlay.active .upsell-modal-content {
+            transform: scale(1);
+        }
+        .upsell-modal-close-x {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .upsell-modal-close-x:hover {
+            color: #ef4444;
+        }
+        .upsell-badge {
+            background: linear-gradient(90deg, #dc2626, #ef4444);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.25);
+        }
+        .upsell-modal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 15px 0 5px;
+            line-height: 1.2;
+        }
+        .upsell-modal-subtitle {
+            font-size: 14px;
+            color: #dc2626;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .upsell-modal-showcase {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .upsell-modal-img {
+            max-width: 120px;
+            height: auto;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .upsell-modal-info {
+            flex: 1;
+        }
+        .upsell-modal-prod-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        .upsell-modal-prod-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
+        }
+        .upsell-price-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .upsell-old-price {
+            font-size: 16px;
+            color: #94a3b8;
+            text-decoration: line-through;
+            font-weight: 500;
+        }
+        .upsell-new-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #ef4444;
+        }
+        .upsell-discount-tag {
+            background: #fef2f2;
+            color: #ef4444;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #fee2e2;
+        }
+        .upsell-timer-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 15px;
+            font-size: 13px;
+            color: #475569;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        .upsell-timer-box span.timer-num {
+            color: #ef4444;
+            font-weight: 700;
+            font-family: monospace;
+            font-size: 15px;
+        }
+        .btn-upsell-action {
+            display: block;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 14px;
+            transition: all 0.2s;
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse-red 2s infinite;
+            text-align: center;
+        }
+        .btn-upsell-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+            background: linear-gradient(135deg, #ff4d4d 0%, #ef4444 100%);
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .upsell-no-thanks {
+            display: inline-block;
+            margin-top: 15px;
+            color: #64748b;
+            font-size: 13px;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .upsell-no-thanks:hover {
+            color: #ef4444;
+        }
+
+        /* Inline Upsell Card Styling */
+        .inline-upsell-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fdfcfc 100%);
+            border: 2px solid #ef4444;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .inline-upsell-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .inline-upsell-badge {
+            background: #ef4444;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .inline-upsell-body {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .inline-upsell-img {
+            max-width: 90px;
+            height: auto;
+            filter: drop-shadow(0 5px 8px rgba(0,0,0,0.1));
+        }
+        .inline-upsell-text {
+            flex: 1;
+        }
+        .inline-upsell-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        .inline-upsell-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
+        }
+        .inline-upsell-price-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+        .inline-upsell-prices {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .inline-upsell-old {
+            font-size: 14px;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+        .inline-upsell-new {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            color: #ef4444;
+        }
+        .inline-upsell-discount {
+            background: #fef2f2;
+            color: #ef4444;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #fee2e2;
+        }
+        .inline-upsell-btn {
+            background: #ef4444;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+            transition: all 0.2s;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .inline-upsell-btn:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 600px) {
+            .upsell-modal-content {
+                padding: 20px;
+            }
+            .upsell-modal-title {
+                font-size: 20px;
+            }
+            .upsell-modal-showcase {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+            .upsell-modal-img {
+                max-width: 100px;
+            }
+            .inline-upsell-body {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .inline-upsell-img {
+                max-width: 80px;
+            }
+            .inline-upsell-price-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .inline-upsell-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -290,12 +641,65 @@
             </div>
         </div>
 
+        <!-- INLINE UPSELL: VASCOLEX -->
+        <div class="inline-upsell-card">
+            <div class="inline-upsell-header">
+                <span class="inline-upsell-badge">Rekomendasyon para sa Iyo</span>
+                <span class="inline-upsell-discount">-50% Off</span>
+            </div>
+            <div class="inline-upsell-body">
+                <img class="inline-upsell-img" src="img/vascolex.png" alt="Vascolex">
+                <div class="inline-upsell-text">
+                    <h3 class="inline-upsell-title">Dagdagan ang Bisa ng Prostate Support!</h3>
+                    <p class="inline-upsell-desc">Alam mo ba na ang malusog na prostate ay nakasalalay sa malusog na daloy ng dugo? Ang <strong>Vascolex</strong> ay nililinis ang iyong mga ugat, binababaan ang presyon ng dugo, at pinapabilis ang daloy ng dugo para sa mas malakas na potency.</p>
+                </div>
+            </div>
+            <div class="inline-upsell-price-bar">
+                <div class="inline-upsell-prices">
+                    <span class="inline-upsell-old al-cost-promo">₱3,980</span>
+                    <span class="inline-upsell-new al-cost">₱1,990</span>
+                </div>
+                <a href="https://tl-track.com/tracker/veDY" target="_blank" class="inline-upsell-btn">Bumili ng Vascolex Ngayon</a>
+            </div>
+        </div>
+
         <button onclick="window.location.href='index.html'" class="btn-home">Bumalik sa Homepage</button>
 
         <!-- Norton e McAfee Logos -->
         <div class="security-footer">
-            <img src="data:image/png;base64,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" alt="Norton Security">
-            <img src="data:image/png;base64,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" alt="McAfee Security">
+            <img src="data:image/png;base64,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" alt="Norton Security">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAdCAMAAAAzbqp2AAAC/VBMVEUAAAAaFxsaFxsaFxsaFxsYFRkaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsYFRkaFxsYFRkaFxsaFxsaFxsYFRkaFxsaFxsaFxsaFxsaFxsZFhoaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsaFxsZFhoaFxsaFxsaFxsaFxsZFhoaFxsaFxsaFxsaFxsaFxsaFxukpqfj4+QaFxsaFxsaFxvs7Oy1t7musbHAwsNzdHa1t7jExcawsbLHystXWFp9fn+eoKFiY2WmqKmvsbJtb3GztrevsbLl5ebS0tO4u7za3N3P0NGPkJKjpqd3eHrl5ubW19fIycrX19iJi4zr6+zh4eKEh4iRk5Xn5+iLjo9QUVT///9+gIFyc3X5+fne3t/Cw8VDREbX2NmWmJrHycv4+PgbGBxWV1qLjY7a29z29vemqKkaFxv///+zARz8+vrBABDu7+/a2trU1NWoEz/MAzTQADKuAAT8///g4OGvEjp+AA6aAAb09vbn6+rx3uLP0dLLzMy0tbanqKm1DjqzBjDAACmvABfx8/L+7vLV19fpwcrFx8i/wsKSlJWOj5C0R2HHBje6BTHGAS6ZABuhABS1AAl5AASkAAD5///n8O/j6eny4+fl5ub7ztvr0tbL0NDwxM/fwsbDxMW9vr/rl6/Yo67XnaqXmJnVgJTdWHi6X3WpUGySN1rLK1K5Ez+6CzjACTaWCDDVADCaACeHFia4BSXKACO1ACO9ACCDBxyCABOTAAvw+/r05+nm5eXxz9fnzdHhxszwssLesLvYqLLYkKHIlp7ke5XacI3SeonKeImGhYfHboa8gYHGWXVvb3GwWGTVN17JOFzIRlrCKE65JEqxKEenMD2+CjqlACbKABebABO9AAb/8vb73ejs1tnlusHXtLnopbWsr6+tra7fm67VkqPjiJ7Vg5zkYoTnUHfRUXDZTG+/PFyxN1a+NlZOT1HQGkiNHUDHED2qBS+eBi1lAABkAAATgL6KAAAAcnRSTlMAElT7RBUF9fBhSQzljFfqfm0/JiIcsJF4TwjhzcO/ZS4YEIFdODQx2dOqnpmJh3p1ct2UaSoIxrmzo8dgRjYqIhcT/fv6+fnz8u7hybiwoX1cUEBAPSkP+PPy4d/Y1s3LvLq3srKnpqObioaFgXFuZjJ9a8fLAAAFZUlEQVRIx62UdVSTYRTG74qxuQEbbAyUMRFBVBQD7O7u7u66d6NDQUrA7u7u7u7u7u7uOt53iuI5/qX+ztn7ffvuzvM9733uXrBTvmyD+t3rFCtWqlSpDp179W/StBn8JSEDSterlZIyKikiKSIiYnh4+KywWeFxLYvVb1IB/oLaqUsfLhiZHBc2dGiCzWZLCAsLGzw8eXj4wpGVynNZr/LjVa7SQybZVCxyg5GAAAAAElFTkSuQmCC" alt="McAfee Security">
+        </div>
+    </div>
+
+    <!-- UPSELL MODAL: VASCOLEX -->
+    <div class="upsell-modal-overlay" id="upsellModal">
+        <div class="upsell-modal-content">
+            <div class="upsell-modal-close-x" id="closeModalX">&times;</div>
+            <div class="upsell-badge">Limitadong Alok</div>
+            <h2 class="upsell-modal-title">KUMPLETO NA ANG IYONG ORDER!</h2>
+            <p class="upsell-modal-subtitle">Mayroong Espesyal na Regalo para sa Iyo sa Susunod na 5 Minuto:</p>
+            
+            <div class="upsell-modal-showcase">
+                <img class="upsell-modal-img" src="img/vascolex.png" alt="Vascolex">
+                <div class="upsell-modal-info">
+                    <h3 class="upsell-modal-prod-title">Vascolex (Heart & Vessel Care)</h3>
+                    <p class="upsell-modal-prod-desc">Ang Prostate Support ay mas epektibo kapag may kasamang malusog na daloy ng dugo. Ang Vascolex ay nililinis ang mga ugat at pinapabuti ang sirkulasyon patungo sa ari para sa mas matigas na ereksyon at mas malusog na prostate.</p>
+                </div>
+            </div>
+            
+            <div class="upsell-price-section">
+                <span class="upsell-old-price al-cost-promo">₱3,980</span>
+                <span class="upsell-new-price al-cost">₱1,990</span>
+                <span class="upsell-discount-tag">-50% OFF</span>
+            </div>
+            
+            <div class="upsell-timer-box">
+                Mag-eexpire ang alok na ito sa loob ng: &nbsp;<span class="timer-num" id="upsellTimer">05:00</span>
+            </div>
+            
+            <a href="https://tl-track.com/tracker/veDY" target="_blank" class="btn-upsell-action" id="btnUpsellAction">Kunin ang Aking Vascolex (50% OFF)</a>
+            <div class="upsell-no-thanks" id="closeModalBtn">Hindi po, salamat. Ipagpatuloy ang aking order.</div>
         </div>
     </div>
 
@@ -309,6 +713,45 @@
                 leadId = Math.floor(1000000 + Math.random() * 9000000);
             }
             document.getElementById("order-number").innerText = leadId + "-ID";
+
+            // UPSELL MODAL LOGIC
+            var modal = document.getElementById("upsellModal");
+            var closeModalX = document.getElementById("closeModalX");
+            var closeModalBtn = document.getElementById("closeModalBtn");
+            var btnUpsellAction = document.getElementById("btnUpsellAction");
+
+            // Exibe o modal após 1.5 segundos
+            setTimeout(function() {
+                modal.classList.add("active");
+                startTimer(300, document.getElementById("upsellTimer")); // 5 minutos (300 segundos)
+            }, 1500);
+
+            function closeModal() {
+                modal.classList.remove("active");
+            }
+
+            closeModalX.addEventListener("click", closeModal);
+            closeModalBtn.addEventListener("click", closeModal);
+            btnUpsellAction.addEventListener("click", closeModal);
+
+            // Timer regressivo de 5 minutos
+            function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                var interval = setInterval(function () {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        clearInterval(interval);
+                        display.textContent = "00:00";
+                    }
+                }, 1000);
+            }
         });
     </script>
 </body>
