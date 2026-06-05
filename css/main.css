@@ -70,6 +70,7 @@ body,html{
   text-transform: uppercase;
   font-size: 17px;
   font-weight: 600;
+  white-space: nowrap;
 }
 .nav a img{
   width: 125px;
@@ -81,6 +82,9 @@ body,html{
   font-size: 25px;
   border-radius: 10px;
   padding: 5px 15px;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 .nav_scrol{
   position: fixed;
