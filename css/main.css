@@ -269,7 +269,7 @@ body,html{
   font-family: poppins-bold
 }
 .titleS3{
-    margin: -24px 0 10px 0;
+    margin: 30px 0 20px 0;
 }
 .section__04{
   position: relative;
@@ -429,7 +429,9 @@ to {
   border-radius: 34px;
   padding: 10px;
   margin: 25px 0 60px 0;
-  height: 226px;
+  min-height: 226px;
+  height: auto;
+  padding-bottom: 20px;
 }
 .boxS7 img{
   position: absolute;
@@ -583,7 +585,9 @@ to {
           box-shadow: 0px 0px 20px grey;
   padding: 40px 10px;
   z-index: 0;
-  height: 520px;
+  min-height: 520px;
+  height: auto;
+  padding-bottom: 30px;
 }
 .boxS11 h4{
   display: -webkit-box;
@@ -645,7 +649,9 @@ to {
   margin: 20px 0;
   -webkit-box-shadow: 0px 0px 20px grey;
           box-shadow: 0px 0px 20px grey;
-  height: 550px;
+  min-height: 550px;
+  height: auto;
+  padding-bottom: 25px;
 }
 .boxS12 h5{
   color: #133a75;
@@ -676,8 +682,9 @@ to {
   -webkit-box-shadow: 0px 0px 20px grey;
           box-shadow: 0px 0px 20px grey;
   border-radius: 20px;
-  padding: 20px;
-  height: 210px;
+  padding: 20px 20px 50px 20px;
+  min-height: 210px;
+  height: auto;
   position: relative;
   margin: -97px 0 15px 0;
   background: #fff;
@@ -911,7 +918,9 @@ to {
     margin-top: 0;
   }
   .boxS7{
-    height: 145px;
+    min-height: 145px;
+    height: auto;
+    padding-bottom: 15px;
     margin: 15px 0 25px 0;
     -webkit-box-shadow: 0px 0px 13px grey;
             box-shadow: 0px 0px 13px grey;
@@ -973,7 +982,9 @@ to {
   }
   .boxS13{
     margin: 15px 0 15px 0;
-    height: 193px;
+    min-height: 193px;
+    height: auto;
+    padding-bottom: 50px;
   }
   .boxS10L{
     margin-right: 0px;
@@ -1038,16 +1049,22 @@ to {
     text-align: center;
   }
   .boxS11 { 
-    height: 570px;
+    min-height: 570px;
+    height: auto;
+    padding-bottom: 30px;
   }
   .angleS11 {
     left: 223px;
     }
     .boxS12 {
-        height: 590px;
+        min-height: 590px;
+        height: auto;
+        padding-bottom: 25px;
     }
     .boxS7 {
-        height: 162px;
+        min-height: 162px;
+        height: auto;
+        padding-bottom: 20px;
         margin: 5px 0 25px 0;
     }
 }
