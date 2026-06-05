@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     try {
         const apiKey = 'c66289394c2a6e8515c8e8b382fba719';
         const userId = '75329';
-        const offerId = '6810';
+        const offerId = '14633';
         const streamId = 've5s';
 
         // Obter os parâmetros de consulta da URL da requisição

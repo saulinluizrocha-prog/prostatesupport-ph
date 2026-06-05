@@ -16,7 +16,7 @@ try{
         'region'        => $_POST['region'] ?? null,
         'city'			=> $_POST['city'] ?? null,
         'count'			=> $_POST['count'] ?? null,
-        'offer_id'		=> '6810',
+        'offer_id'		=> '14633',
         'stream_id'		=> 've5s',
         'country' 		=> 'PH',
         'tz' 			=> '',
@@ -52,7 +52,7 @@ class CApiConnector
 {
     public $config = array(
         'api_key' => 'c66289394c2a6e8515c8e8b382fba719',
-        'offer_id' => '6810',
+        'offer_id' => '14633',
         'user_id' => '75329',
         'api_domain' => 'https://t-api.org',
     );
